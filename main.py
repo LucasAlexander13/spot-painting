@@ -1,12 +1,19 @@
 from colors import color_list
 from random import choice
-from turtle import Screen, Turtle
+import turtle as turtle_module
 
-screen = Screen()
-tim = Turtle()
-tim.shape('circle')
 
-for i in range(50):
-    color = choice(color_list)
-    tim.color(color[0], color[1], color[2])
-    tim.forward(20)
+screen = turtle_module.Screen()
+tim = turtle_module.Turtle()
+turtle_module.colormode(255)
+tim.penup()
+tim.setposition(-300, -255)
+
+for i in range(11):
+    for j in range(13):
+        tim.dot(15, choice(color_list))
+        tim.forward(50)
+    tim.setposition(-300, i * 50 - 255)
+    tim.left(90)
+    tim.forward(50)
+    tim.right(90)
